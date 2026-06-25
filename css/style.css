@@ -101,3 +101,34 @@ footer { text-align: center; padding: 24px 0; color: var(--text-secondary); font
 @media (min-width: 601px) and (max-width: 1024px) {
   .container { max-width: 90vw; }
 }
+
+/* === Print styles (PDF export) === */
+@media print {
+  body { background: #fff; }
+  .container > header, .container > footer,
+  #form-section, .message-toast,
+  .output-header, .output-actions {
+    display: none !important;
+  }
+  #output-section { display: block !important; }
+  #output-section .card {
+    box-shadow: none; border: none; padding: 0; margin: 0;
+  }
+  #print-area {
+    display: block !important;
+    padding: 20px;
+  }
+  .print-header {
+    text-align: center; margin-bottom: 24px;
+    border-bottom: 2px solid #000; padding-bottom: 16px;
+  }
+  .print-header h1 { font-size: 18pt; margin-bottom: 6px; }
+  .print-header p { font-size: 10pt; color: #666; }
+  .print-content {
+    font-size: 9pt; line-height: 1.5;
+    white-space: pre-wrap; word-break: break-word;
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #000;
+  }
+  @page { margin: 1.5cm; size: A4; }
+}

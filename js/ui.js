@@ -103,6 +103,8 @@ const UI = {
         <div class="prompt-preview"><pre id="prompt-text">${this._escapeHtml(promptText)}</pre></div>
         <div class="output-actions">
           <button type="button" id="copy-btn" class="btn-primary">📋 一键复制</button>
+          <button type="button" id="download-pdf-btn" class="btn-secondary">📄 下载 PDF</button>
+          <button type="button" id="download-excel-btn" class="btn-secondary">📊 下载 Excel</button>
           <button type="button" id="regenerate-btn" class="btn-secondary">🔄 重新生成</button>
         </div>
       </div>`;
