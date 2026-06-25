@@ -130,7 +130,7 @@ function buildPrompt(userInfo, tieredData, preferences) {
   lines.push('---');
   lines.push('请确保分析具体、量化、可操作，避免泛泛而谈。所有数据引用以本 Prompt 提供的真实录取数据为准。');
   lines.push('');
-  lines.push('> 📌 使用方式：将上方 HTML 代码块完整复制，保存为「志愿填报分析报告.html」，双击即可在浏览器打开一份完整报告，可直接打印或发送给家人。
+  lines.push('> 📌 使用方式：将上方 HTML 代码块完整复制，保存为「志愿填报分析报告.html」，双击即可在浏览器打开一份完整报告，可直接打印或发送给家人。');
 
   return lines.join('\n');
 }
