@@ -4,10 +4,13 @@
 
 ## 使用方法
 
-1. 双击 `index.html` 在浏览器中打开
-2. 填写高考信息（省份、选科、分数、偏好等）
-3. 点击生成 Prompt
-4. 一键复制，粘贴到 DeepSeek / Kimi / 豆包 等 AI 中
+**在线访问**：https://jiekewen.github.io/volunteer/
+
+**本地打开**：双击 `index.html` 在浏览器中打开
+
+1. 填写高考信息（省份、选科、分数、偏好等）
+2. 点击生成 Prompt
+3. 一键复制，粘贴到 DeepSeek / Kimi / 豆包 等 AI 中
 
 ## 数据覆盖
 
