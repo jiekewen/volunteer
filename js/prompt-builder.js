@@ -106,25 +106,31 @@ function buildPrompt(userInfo, tieredData, preferences) {
   lines.push('- 冲刺档的风险点（大小年现象、专业调剂风险、退档风险）');
   lines.push('- 如滑档的应急预案（征集志愿策略、下一批次优质院校推荐）');
   lines.push('- 是否建议服从调剂及其利弊分析\n');
-  lines.push('### e) 生成可下载文件\n');
-  lines.push('请在分析完成后，额外输出以下内容，用户可直接保存为文件：\n');
-  lines.push('**1. CSV 志愿填报表**（代码块包裹，复制存为 .csv 用 Excel 打开）：');
-  lines.push('```csv');
-  lines.push('档次,院校,专业,城市,层次,最低分,分差,录取概率,推荐理由');
-  lines.push('冲刺,示例大学,计算机,南京,985,660,+5,低,学科评估A级');
-  lines.push('...');
+  lines.push('### e) 生成可下载的报告文件\n');
+  lines.push('请在完成以上 a/b/c/d 全部分析后，将**所有内容**整合为一份完整的 HTML 网页文件，用代码块输出。用户复制后保存为 .html 文件，双击即可在浏览器中打开一份排版精美的完整报告。\n');
+  lines.push('HTML 文件要求：');
+  lines.push('- 使用简洁优雅的 CSS 样式（卡片布局、配色清爽、适合打印）');
+  lines.push('- 包含以下完整内容：考生画像、三档推荐表格、就业前景分析、个性化建议、风险提示');
+  lines.push('- 表格要清晰，重要信息加粗或高亮');
+  lines.push('- 移动端也能正常查看');
+  lines.push('- 文件自包含，无需任何外部依赖\n');
+  lines.push('```html');
+  lines.push('<!DOCTYPE html>');
+  lines.push('<html lang="zh-CN">');
+  lines.push('<head><meta charset="UTF-8"><title>高考志愿填报分析报告</title>');
+  lines.push('<style>/* 你的 CSS 样式 */</style></head>');
+  lines.push('<body>');
+  lines.push('  <!-- 考生画像 -->');
+  lines.push('  <!-- 冲稳保推荐表格 -->');
+  lines.push('  <!-- 就业前景分析 -->');
+  lines.push('  <!-- 个性化建议 -->');
+  lines.push('  <!-- 风险提示 -->');
+  lines.push('</body></html>');
   lines.push('```\n');
-  lines.push('**2. 完整志愿分析报告**（Markdown 代码块包裹，复制存为 .md 文件）：');
-  lines.push('```markdown');
-  lines.push('# 高考志愿填报分析报告');
-  lines.push('## 考生信息 | ## 冲稳保推荐 | ## 就业前景 | ## 个性化建议 | ## 风险提示');
-  lines.push('...');
-  lines.push('```');
-  lines.push('报告要求：格式完整、可直接阅读、适合打印或分享给家人讨论\n');
   lines.push('---');
   lines.push('请确保分析具体、量化、可操作，避免泛泛而谈。所有数据引用以本 Prompt 提供的真实录取数据为准。');
   lines.push('');
-  lines.push('> 📌 提示：以上分析结果中的 CSV 和 Markdown 代码块，可直接复制保存为 .csv / .md 文件，方便打印或分享给家人。');
+  lines.push('> 📌 使用方式：将上方 HTML 代码块完整复制，保存为「志愿填报分析报告.html」，双击即可在浏览器打开一份完整报告，可直接打印或发送给家人。
 
   return lines.join('\n');
 }
