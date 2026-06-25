@@ -106,6 +106,18 @@ function buildPrompt(userInfo, tieredData, preferences) {
   lines.push('- 冲刺档的风险点（大小年现象、专业调剂风险、退档风险）');
   lines.push('- 如滑档的应急预案（征集志愿策略、下一批次优质院校推荐）');
   lines.push('- 是否建议服从调剂及其利弊分析\n');
+  lines.push('### e) 文件输出（方便保存）');
+  lines.push('请在所有分析完成后，额外输出以下可直接保存为文件的内容：\n');
+  lines.push('**1. CSV 志愿填报表**（用代码块包裹，用户复制后存为 .csv 文件即可用 Excel 打开）：');
+  lines.push('```csv');
+  lines.push('档次,院校,专业,城市,层次,最低分,分差,录取概率,推荐理由');
+  lines.push('冲刺,XX大学,计算机,南京,985,660,+5,低,专业实力强');
+  lines.push('...（请按此格式输出所有推荐组合）');
+  lines.push('```\n');
+  lines.push('**2. 完整分析报告**（Markdown 格式，用户可复制存为 .md 文件）：');
+  lines.push('- 将上述 a/b/c/d 四部分分析整理为一份完整的 Markdown 报告');
+  lines.push('- 包含标题层级、表格、重点加粗等格式');
+  lines.push('- 便于用户保存、打印或分享给家人讨论\n');
   lines.push('---');
   lines.push('请确保分析具体、量化、可操作，避免泛泛而谈。所有数据引用以本 Prompt 提供的真实录取数据为准。');
 
