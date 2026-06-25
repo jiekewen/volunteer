@@ -5,7 +5,6 @@ const App = {
   async init() {
     const provinces = Object.keys(DataLoader.PROVINCE_MAP);
     UI.renderForm(provinces);
-    this.restoreState();
 
     document.getElementById('generate-btn')?.addEventListener('click', () => this.handleGenerate());
     document.getElementById('output-section')?.addEventListener('click', (e) => {
@@ -16,13 +15,6 @@ const App = {
     });
     document.getElementById('province')?.addEventListener('change', () => this.handleProvinceChange());
     document.getElementById('subjectType')?.addEventListener('change', () => this.handleProvinceChange());
-
-    ['province', 'subjectType', 'score', 'batchLine', 'rank', 'freeText'].forEach(id => {
-      document.getElementById(id)?.addEventListener('change', () => this.saveState());
-    });
-    document.getElementById('form-section')?.addEventListener('click', (e) => {
-      if (e.target.classList.contains('tag-btn')) setTimeout(() => this.saveState(), 100);
-    });
   },
 
   async handleProvinceChange() {
@@ -72,7 +64,6 @@ const App = {
       UI.renderPrompt(prompt);
       UI.toggleOutput(true);
       document.getElementById('output-section')?.scrollIntoView({ behavior: 'smooth' });
-      this.saveState();
       UI.showMessage(`✅ 生成成功！冲刺 ${tiered.rush.length} / 稳妥 ${tiered.steady.length} / 保底 ${tiered.safe.length} 个专业`, 'success');
     } catch (err) {
       UI.showMessage(`生成失败：${err.message}`, 'error');
@@ -222,16 +213,6 @@ const App = {
     document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth' });
   },
 
-  saveState() {
-    try { localStorage.setItem('gaokao_volunteer_state', JSON.stringify(UI.getFormData())); } catch {}
-  },
-
-  restoreState() {
-    try {
-      const raw = localStorage.getItem('gaokao_volunteer_state');
-      if (raw) UI.setFormData(JSON.parse(raw));
-    } catch {}
-  }
 };
 
 document.addEventListener('DOMContentLoaded', () => App.init());
